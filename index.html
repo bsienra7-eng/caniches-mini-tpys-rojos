@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caniches Mini Toys Rojos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --teal: #1a9e9e;
+      --teal-dark: #157d7d;
+      --red: #e05555;
+      --pink-light: #fef0f0;
+      --beige: #faf5f0;
+      --text: #2d2d2d;
+      --white: #ffffff;
+    }
+    body { font-family: 'Nunito', sans-serif; color: var(--text); overflow-x: hidden; }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 60px; background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 100;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-icon {
+      width: 52px; height: 52px; background: #f9a8a8; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 26px;
+    }
+    .logo-text { font-size: 18px; font-weight: 900; color: var(--text); line-height: 1.2; }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 15px; transition: color .2s; }
+    .nav-links a:hover { color: var(--teal); }
+    .btn-reserva {
+      background: var(--teal); color: #fff; border: none; border-radius: 30px;
+      padding: 12px 24px; font-weight: 700; font-size: 15px; cursor: pointer;
+      text-decoration: none; transition: background .2s;
+    }
+    .btn-reserva:hover { background: var(--teal-dark); }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; min-height: 520px; overflow: hidden;
+      background: linear-gradient(135deg, #e8f8f8 0%, #d4f0f0 100%);
+      display: flex; align-items: center;
+    }
+    .hero-img {
+      position: absolute; right: 0; top: 0; width: 60%; height: 100%;
+      object-fit: cover; object-position: center;
+    }
+    /* Placeholder hero bg cuando no hay imagen */
+    .hero-bg-placeholder {
+      position: absolute; right: 0; top: 0; width: 60%; height: 100%;
+      background: linear-gradient(135deg, #b2e8e8, #7dd4d4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 80px;
+    }
+    .hero-overlay {
+      position: absolute; left: 0; top: 0; width: 55%; height: 100%;
+      background: linear-gradient(to right, rgba(232,248,248,0.95) 60%, transparent);
+    }
+    .hero-content {
+      position: relative; z-index: 2; padding: 60px 60px; max-width: 580px;
+    }
+    .hero-box {
+      background: rgba(26,158,158,0.9); border-radius: 20px;
+      padding: 36px 40px; color: #fff;
+    }
+    .hero-box h1 { font-size: 42px; font-weight: 900; margin-bottom: 12px; }
+    .hero-box p { font-size: 18px; font-weight: 600; margin-bottom: 24px; }
+    .btn-hero {
+      background: var(--red); color: #fff; border: none; border-radius: 30px;
+      padding: 13px 28px; font-size: 16px; font-weight: 700; cursor: pointer;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+      transition: background .2s;
+    }
+    .btn-hero:hover { background: #c94444; }
+
+    /* ===== MONTA SERVICE ===== */
+    .monta-section {
+      padding: 40px 60px; background: #fafafa;
+    }
+    .monta-box {
+      border: 2px solid #f9a8a8; border-radius: 16px; padding: 30px 40px;
+      max-width: 900px; margin: 0 auto; text-align: center;
+    }
+    .monta-check {
+      width: 40px; height: 40px; background: #555; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px; color: #fff; font-size: 18px;
+    }
+    .monta-box h2 { font-size: 22px; font-weight: 900; margin-bottom: 8px; }
+    .monta-box p { color: #666; font-size: 15px; margin-bottom: 20px; }
+    .btn-info {
+      background: var(--teal); color: #fff; border: none; border-radius: 30px;
+      padding: 13px 28px; font-size: 15px; font-weight: 700; cursor: pointer;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: background .2s;
+    }
+    .btn-info:hover { background: var(--teal-dark); }
+
+    /* ===== CARACTERÍSTICAS ===== */
+    .caracteristicas {
+      padding: 60px 60px; background: var(--beige);
+    }
+    .section-title {
+      text-align: center; font-size: 36px; font-weight: 900;
+      color: var(--teal); margin-bottom: 50px; line-height: 1.2;
+    }
+    .caract-grid {
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px;
+      align-items: start; max-width: 1100px; margin: 0 auto;
+    }
+    .caract-img {
+      width: 280px; height: 380px; object-fit: contain;
+      display: block; margin: 0 auto;
+    }
+    .caract-img-placeholder {
+      width: 280px; height: 380px; background: linear-gradient(135deg, #f9c5a0, #e8946a);
+      border-radius: 20px; display: flex; align-items: center; justify-content: center;
+      font-size: 80px; margin: 0 auto;
+    }
+    .caract-col { display: flex; flex-direction: column; gap: 28px; }
+    .caract-item {}
+    .caract-num { color: var(--red); font-weight: 900; font-size: 14px; margin-bottom: 4px; }
+    .caract-item h3 { font-size: 17px; font-weight: 900; margin-bottom: 6px; }
+    .caract-item p { font-size: 13px; color: #555; line-height: 1.6; }
+
+    /* ===== GALERÍA ===== */
+    .galeria { padding: 60px 60px; background: #fff; }
+    .galeria-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .galeria-grid img {
+      width: 100%; height: 220px; object-fit: cover; border-radius: 12px;
+      transition: transform .3s; cursor: pointer;
+    }
+    .galeria-grid img:hover { transform: scale(1.03); }
+    /* Placeholders galería */
+    .galeria-placeholder {
+      width: 100%; height: 220px; border-radius: 12px;
+      background: linear-gradient(135deg, #f5d5c5, #e8b090);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-size: 36px; color: #c06040; cursor: pointer;
+      border: 2px dashed #e8a070; transition: transform .3s;
+    }
+    .galeria-placeholder:hover { transform: scale(1.03); }
+    .galeria-placeholder span { font-size: 12px; font-weight: 700; margin-top: 8px; }
+
+    /* ===== QUÉ INCLUYE ===== */
+    .incluye { padding: 60px 60px; background: var(--beige); }
+    .incluye-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .incluye-img-wrap { position: relative; }
+    .incluye-img {
+      width: 100%; border-radius: 20px; object-fit: cover;
+    }
+    .incluye-img-placeholder {
+      width: 100%; height: 380px; background: linear-gradient(135deg, #e8d0c0, #d4a080);
+      border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 70px;
+    }
+    .incluye-items { display: flex; flex-direction: column; gap: 24px; }
+    .incluye-item h3 { font-size: 16px; font-weight: 900; margin-bottom: 4px; }
+    .incluye-item p { font-size: 13px; color: #555; line-height: 1.6; }
+
+    /* ===== TU MEJOR AMIGO ===== */
+    .amigo { padding: 60px 60px; background: #fff; }
+    .amigo-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .amigo-img {
+      width: 100%; max-width: 380px; border-radius: 50%; object-fit: cover;
+      aspect-ratio: 1; display: block;
+    }
+    .amigo-img-placeholder {
+      width: 320px; height: 320px; background: linear-gradient(135deg, #c8e8f0, #90c8d8);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 80px;
+    }
+    .amigo-content h2 { font-size: 30px; font-weight: 900; color: var(--teal); margin-bottom: 6px; }
+    .amigo-content h3 { font-size: 18px; font-weight: 700; margin-bottom: 24px; color: #333; }
+    .amigo-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .amigo-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 600; color: #333;
+    }
+    .amigo-list li::before {
+      content: '🤍'; font-size: 16px;
+    }
+
+    /* ===== FORMAS / PAGOS / ATENCIÓN ===== */
+    .logistica { padding: 60px 60px; background: var(--beige); position: relative; overflow: hidden; }
+    .wave-top {
+      position: absolute; top: 0; left: 0; right: 0; height: 60px;
+      background: #fff; border-radius: 0 0 50% 50% / 0 0 40px 40px;
+    }
+    .logistica-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      max-width: 1000px; margin: 60px auto 0;
+    }
+    .logistica-card {
+      border-radius: 16px; padding: 30px 24px; text-align: center;
+    }
+    .logistica-card.green { background: #c8ede8; }
+    .logistica-card.pink { background: #fde8e8; }
+    .logistica-card.peach { background: #fde8d8; }
+    .logistica-icon { font-size: 32px; margin-bottom: 12px; }
+    .logistica-card h3 { font-size: 18px; font-weight: 900; margin-bottom: 10px; }
+    .logistica-card p { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 14px; }
+    .btn-small {
+      background: var(--teal); color: #fff; border: none; border-radius: 30px;
+      padding: 10px 20px; font-size: 13px; font-weight: 700; cursor: pointer;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+      transition: background .2s;
+    }
+    .btn-small:hover { background: var(--teal-dark); }
+
+    /* ===== FAQ ===== */
+    .faq { padding: 0; background: var(--teal); }
+    .faq-wave {
+      height: 60px; background: var(--beige);
+      border-radius: 0 0 50% 50% / 0 0 40px 40px;
+    }
+    .faq-inner { padding: 50px 60px 60px; }
+    .faq h2 { text-align: center; font-size: 32px; font-weight: 900; color: #fff; margin-bottom: 10px; }
+    .faq-icon { text-align: center; margin-bottom: 30px; font-size: 40px; }
+    .faq-list { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+    .faq-item {
+      background: rgba(0,0,0,0.25); border-radius: 10px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq-question {
+      padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between;
+      align-items: center; color: #fff; font-weight: 700; font-size: 14px;
+      user-select: none;
+    }
+    .faq-question span { font-size: 18px; transition: transform .3s; }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: max-height .3s ease;
+      color: #d0f0f0; font-size: 13px; padding: 0 20px; line-height: 1.6;
+    }
+    .faq-item.open .faq-answer { max-height: 200px; padding: 0 20px 16px; }
+    .faq-item.open .faq-question span { transform: rotate(45deg); }
+
+    /* ===== CONTACTO ===== */
+    .contacto {
+      background: var(--teal); padding: 60px 60px; text-align: center;
+    }
+    .contacto-icon { font-size: 60px; margin-bottom: 16px; }
+    .contacto h2 { font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 10px; }
+    .contacto p { color: #d0f0f0; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .contacto-num {
+      font-size: 28px; font-weight: 900; color: #ffe066;
+      display: flex; align-items: center; justify-content: center; gap: 10px; margin: 12px 0;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-wave {
+      height: 80px;
+      background: linear-gradient(to bottom right, var(--teal) 48%, #fff 48%);
+    }
+    .footer {
+      background: #fff; padding: 30px 60px 20px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-logo-icon {
+      width: 44px; height: 44px; background: #f9a8a8; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 22px;
+    }
+    .footer-logo-text { font-size: 16px; font-weight: 900; }
+    .footer-copy { font-size: 12px; color: #888; }
+    .footer-dev { font-size: 12px; color: #888; }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .wa-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      width: 56px; height: 56px; background: #25d366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      text-decoration: none; transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      nav { padding: 12px 20px; }
+      .nav-links { display: none; }
+      .hero-content { padding: 40px 20px; }
+      .hero-box h1 { font-size: 28px; }
+      .caract-grid { grid-template-columns: 1fr; }
+      .caract-img-placeholder, .caract-img { width: 200px; height: 260px; }
+      .galeria { padding: 40px 20px; }
+      .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+      .incluye-inner, .amigo-inner { grid-template-columns: 1fr; }
+      .logistica-grid { grid-template-columns: 1fr; }
+      .caracteristicas, .galeria, .incluye, .amigo, .logistica, .faq-inner, .contacto, .footer {
+        padding-left: 20px; padding-right: 20px;
+      }
+      .monta-section { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">🐩</div>
+    <div class="logo-text">CANICHES<br>MINI TOYS ROJOS</div>
+  </div>
+  <div class="nav-links">
+    <a href="#galeria">Galería</a>
+    <a href="#redes">Redes</a>
+    <a href="#pagos">Medios de pago</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contacto">Contacto</a>
+    <a href="https://wa.me/5491130332949" class="btn-reserva" target="_blank">¡Reserva Tu Caniche Hoy!</a>
+  </div>
+  <a href="https://wa.me/5491130332949" class="btn-reserva" style="display:none" id="nav-wa-mobile">WhatsApp</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- REEMPLAZA esta imagen con tu foto: coloca tu imagen como hero-bg.jpg en la misma carpeta -->
+  <div class="hero-bg-placeholder" id="hero-placeholder">🐶</div>
+  <img src="hero-bg.jpg" alt="Caniche" class="hero-img" id="hero-img" onerror="this.style.display='none'; document.getElementById('hero-placeholder').style.display='flex';" style="display:none" onload="this.style.display='block'; document.getElementById('hero-placeholder').style.display='none';" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-box">
+      <h1>Caniches Mini<br>Toys Rojos</h1>
+      <p>Poodles Elegantes, Saludables y<br>Listos para Ser Parte de Tu Familia</p>
+      <a href="https://wa.me/5491130332949" class="btn-hero">Lo Quiero ❤️</a>
+    </div>
+  </div>
+</section>
+
+<!-- MONTA SERVICE -->
+<section class="monta-section">
+  <div class="monta-box">
+    <div class="monta-check">✓</div>
+    <h2>SERVICIO DE MONTA DE ROJO ❤️ PIMENTÓN!!!</h2>
+    <p>Servicio exclusivo, reservas limitadas.<br>Comunicate con nosotros</p>
+    <a href="https://wa.me/5491130332949?text=Hola!%20Quiero%20más%20información%20sobre%20el%20servicio%20de%20monta" class="btn-info" target="_blank">
+      Quiero Mas Información →
+    </a>
+  </div>
+</section>
+
+<!-- CARACTERÍSTICAS -->
+<section class="caracteristicas" id="caracteristicas">
+  <h2 class="section-title">Características del<br>caniche rojo mini toy</h2>
+  <div class="caract-grid">
+    <div class="caract-col">
+      <div class="caract-item">
+        <div class="caract-num">01</div>
+        <h3>Tamaño Pequeño</h3>
+        <p>Los caniches toy rojos son ideales para espacios pequeños debido a su tamaño. Son perfectos para vivir en departamentos o casas con espacio limitado, sin sacrificar la alegría de tener una mascota.</p>
+      </div>
+      <div class="caract-item">
+        <div class="caract-num">02</div>
+        <h3>Pelaje Hipoalergénico</h3>
+        <p>Su pelaje rizado y denso es ideal para personas con alergias, ya que no sueltan tanto pelo como otras razas. Además, su mantenimiento es sencillo con visitas regulares al peluquero canino.</p>
+      </div>
+      <div class="caract-item">
+        <div class="caract-num">03</div>
+        <h3>Inteligencia y Entrenamiento</h3>
+        <p>Los caniches toy rojos son conocidos por su alta inteligencia y capacidad de aprendizaje. Son fáciles de entrenar y pueden aprender trucos y comandos rápidamente.</p>
+      </div>
+    </div>
+
+    <!-- IMAGEN CENTRAL: reemplaza caract-dog.png con tu foto -->
+    <div>
+      <div class="caract-img-placeholder" id="caract-placeholder">🐩</div>
+      <img src="caract-dog.png" alt="Caniche" class="caract-img" id="caract-img"
+        onerror="this.style.display='none'; document.getElementById('caract-placeholder').style.display='flex';"
+        style="display:none"
+        onload="this.style.display='block'; document.getElementById('caract-placeholder').style.display='none';" />
+    </div>
+
+    <div class="caract-col">
+      <div class="caract-item">
+        <div class="caract-num">04</div>
+        <h3>Juguetones y Cariñosos</h3>
+        <p>Estos perros son extremadamente cariñosos y disfrutan de la compañía humana. Su naturaleza juguetona los convierte en excelentes compañeros para niños y adultos por igual.</p>
+      </div>
+      <div class="caract-item">
+        <div class="caract-num">05</div>
+        <h3>Larga Esperanza de Vida</h3>
+        <p>Con los cuidados adecuados, los caniches toy rojos pueden vivir entre 12 y 17 años. Esto los convierte en una inversión a largo plazo para quienes buscan un compañero fiel por muchos años.</p>
+      </div>
+      <div class="caract-item">
+        <div class="caract-num">06</div>
+        <h3>Apariencia Elegante y Exclusiva</h3>
+        <p>Su pelaje rojo intenso y su porte elegante los convierten en una raza llamativa y exclusiva. Son ideales para quienes buscan una mascota que combine belleza y personalidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="galeria" id="galeria">
+  <h2 class="section-title" style="color: var(--teal);">Galería</h2>
+  <div class="galeria-grid">
+    <!-- REEMPLAZA galeria1.jpg a galeria9.jpg con tus fotos -->
+    <div class="galeria-placeholder" id="gp1"><span>📸 foto 1</span></div>
+    <div class="galeria-placeholder" id="gp2"><span>📸 foto 2</span></div>
+    <div class="galeria-placeholder" id="gp3"><span>📸 foto 3</span></div>
+    <div class="galeria-placeholder" id="gp4"><span>📸 foto 4</span></div>
+    <div class="galeria-placeholder" id="gp5"><span>📸 foto 5</span></div>
+    <div class="galeria-placeholder" id="gp6"><span>📸 foto 6</span></div>
+    <div class="galeria-placeholder" id="gp7"><span>📸 foto 7</span></div>
+    <div class="galeria-placeholder" id="gp8"><span>📸 foto 8</span></div>
+    <div class="galeria-placeholder" id="gp9"><span>📸 foto 9</span></div>
+  </div>
+  <p style="text-align:center; margin-top: 20px; font-size:13px; color:#888;">
+    💡 Reemplazá los placeholders con tus fotos: galeria1.jpg, galeria2.jpg... galeria9.jpg
+  </p>
+</section>
+
+
+<!-- QUÉ INCLUYE -->
+<section class="incluye" id="incluye">
+  <h2 class="section-title">¿Qué incluye el precio?</h2>
+  <div class="incluye-inner">
+    <div class="incluye-img-wrap">
+      <div class="incluye-img-placeholder" id="incluye-placeholder">👩‍⚕️🐩</div>
+      <img src="incluye.jpg" alt="Veterinaria con caniche" class="incluye-img" id="incluye-img"
+        onerror="this.style.display='none'; document.getElementById('incluye-placeholder').style.display='flex';"
+        style="display:none"
+        onload="this.style.display='block'; document.getElementById('incluye-placeholder').style.display='none';" />
+    </div>
+    <div class="incluye-items">
+      <div class="incluye-item">
+        <h3>1- Cartilla de vacunación y desparasitación</h3>
+        <p>¡Salud garantizada! Tu caniche toy incluye cartilla al día con vacunas y desparasitación. ¡Cuidado profesional desde el primer día! 🩺❤️</p>
+      </div>
+      <div class="incluye-item">
+        <h3>2- Bolsa pequeña de alimento</h3>
+        <p>Alimento premium para que tu caniche crezca fuerte y brillante. ¡Nutrición de calidad desde el primer mordisco! 🍗⭐</p>
+      </div>
+      <div class="incluye-item">
+        <h3>3- Shampoo hipoalergénico y Perfume</h3>
+        <p>Shampoo suave para su pelaje rojo. ¡Hipoalergénico y sin lágrimas! Mimarlo nunca fue tan fácil. 🧴✨</p>
+      </div>
+      <div class="incluye-item">
+        <h3>4- Platitos (agua y alimento)</h3>
+        <p>Juego de platitos elegantes para su comida y agua. ¡Perfectos para consentir a tu caniche toy rojo como se merece! 🍽️❤️</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TU MEJOR AMIGO -->
+<section class="amigo" id="amigo">
+  <div class="amigo-inner">
+    <div>
+      <div class="amigo-img-placeholder" id="amigo-placeholder">🐩</div>
+      <img src="amigo-dog.jpg" alt="Caniche corriendo" class="amigo-img" id="amigo-img"
+        onerror="this.style.display='none'; document.getElementById('amigo-placeholder').style.display='flex';"
+        style="display:none"
+        onload="this.style.display='block'; document.getElementById('amigo-placeholder').style.display='none';" />
+    </div>
+    <div class="amigo-content">
+      <h2>Caniches Mini Toys Rojos:</h2>
+      <h3>Tu Nuevo Mejor Amigo Espera por Ti</h3>
+      <ul class="amigo-list">
+        <li>Criados con la mejor alimentación: Royal Canin</li>
+        <li>Complementarios: Frutas, verduras, pollo al horno</li>
+        <li>Vitaminas / minerales y calcio en su desarrollo al inicio</li>
+        <li>Seguimos trabajando el rojo pimentón real</li>
+        <li>3 desparasitaciones bien realizadas</li>
+        <li>Libreta sanitaria de vacunación</li>
+        <li>Incluimos su certificado médico de salud</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAS / PAGOS / ATENCIÓN -->
+<section class="logistica" id="pagos">
+  <div class="wave-top"></div>
+  <div class="logistica-grid">
+    <div class="logistica-card green">
+      <div class="logistica-icon">🗺️</div>
+      <h3>Formas de envíos</h3>
+      <p>Entregamos en nuestro establecimiento.<br>O sugerimos empresas de transporte de Argentina</p>
+    </div>
+    <div class="logistica-card pink">
+      <div class="logistica-icon">💳</div>
+      <h3>Medios de Pagos</h3>
+      <p>Brindamos todas las opciones de pago para que puedas llenar tu hogar de alegría</p>
+      <p><strong>Para pagos con tarjeta 💳</strong></p>
+      <a href="https://wa.me/5491130332949" class="btn-small" target="_blank">+54 9 11 3033-2949 💬</a>
+    </div>
+    <div class="logistica-card peach">
+      <div class="logistica-icon">💬</div>
+      <h3>Atención personalizada</h3>
+      <p>Te acompañamos en todo el proceso para adquirir tu nuevo amigo</p>
+      <a href="https://wa.me/5491130332949" class="btn-small" target="_blank">¡Haz Tu Reserva Ahora! 💬</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-wave"></div>
+  <div class="faq-inner">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-icon">🐾</div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿Los caniches toy rojos son hipoalergénicos?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">Su pelaje hipoalergénico lo convierte en una buena opción para personas con alergias</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿Qué incluye el precio?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">Incluye cartilla de vacunación y desparasitación, bolsa de alimento premium, shampoo hipoalergénico, perfume y platitos de agua y comida.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿Cuanto mide y pesa un Caniche toy rojo saludable?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">Los caniches toy rojos miden entre 24 y 28 cm y pesan entre 2 y 3 kg cuando están completamente desarrollados.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿De cuanto es la expectativa de vida?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">Con los cuidados adecuados pueden vivir entre 12 y 17 años.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿Como debe ser el cuidado de un Caniche toy rojo?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">Necesitan cepillado frecuente, visitas al peluquero canino cada 6-8 semanas, ejercicio diario moderado y alimentación de calidad.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿Son perros seguros para niños?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">Sí, son perros extremadamente cariñosos y juguetones, ideales para familias con niños de todas las edades.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿Cómo hago si quiero pagar con tarjeta de credito?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">Comunicate por WhatsApp al +54 9 11 3033-2949 para coordinar el pago con tarjeta de crédito.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+  <div class="contacto-icon">💬</div>
+  <h2>Contactanos para más información</h2>
+  <p>Horario de atención:<br>10 a 16hs solo WhatsApp</p>
+  <div class="contacto-num">
+    👉 <a href="https://wa.me/5491130332949" style="color: #ffe066; text-decoration: none;">+54 9 11 3033-2949</a>
+  </div>
+</section>
+
+
+<!-- FOOTER WAVE -->
+<div style="height:60px; background: linear-gradient(to bottom, var(--teal) 50%, #fff 50%);"></div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">
+    <div class="footer-logo-icon">🐩</div>
+    <div class="footer-logo-text">CANICHES<br>MINI TOYS ROJOS</div>
+  </div>
+  <div class="footer-copy">Copyright © 2026 Caniches Mini Toys Rojos</div>
+  <div class="footer-dev">Desarrollado con ❤️</div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/5491130332949" class="wa-float" target="_blank" title="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    item.classList.toggle('open');
+  }
+
+  // Mostrar nav WhatsApp en mobile
+  const mobileWA = document.getElementById('nav-wa-mobile');
+  if (window.innerWidth <= 900) mobileWA.style.display = 'block';
+
+  // Intentar cargar imágenes dinámicamente
+  const images = [
+    { src: 'hero-bg.jpg', imgId: 'hero-img', placeholderId: 'hero-placeholder' },
+    { src: 'caract-dog.png', imgId: 'caract-img', placeholderId: 'caract-placeholder' },
+    { src: 'incluye.jpg', imgId: 'incluye-img', placeholderId: 'incluye-placeholder' },
+    { src: 'amigo-dog.jpg', imgId: 'amigo-img', placeholderId: 'amigo-placeholder' },
+  ];
+  images.forEach(({src, imgId, placeholderId}) => {
+    const img = document.getElementById(imgId);
+    if (img) {
+      img.src = src;
+      img.style.display = 'block';
+    }
+  });
+
+  // Galería dinámica: galeria1.jpg a galeria9.jpg
+  for (let i = 1; i <= 9; i++) {
+    const placeholder = document.getElementById('gp' + i);
+    if (placeholder) {
+      const img = document.createElement('img');
+      img.src = 'galeria' + i + '.jpg';
+      img.alt = 'Caniche ' + i;
+      img.style.cssText = 'width:100%;height:220px;object-fit:cover;border-radius:12px;transition:transform .3s;cursor:pointer;';
+      img.onerror = function() { this.style.display = 'none'; placeholder.style.display = 'flex'; };
+      img.onload = function() { placeholder.style.display = 'none'; };
+      placeholder.parentElement.insertBefore(img, placeholder);
+    }
+  }
+</script>
+
+</body>
+</html>
