@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caniches Mini Toys Rojos</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐩</text></svg>" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,7 +19,7 @@
       --white: #fff9f5;
     }
     body { font-family: 'Nunito', sans-serif; color: var(--text); overflow-x: hidden; background: #fff9f5; }
-
+ 
     /* ===== NAVBAR ===== */
     nav {
       display: flex; align-items: center; justify-content: space-between;
@@ -40,7 +41,7 @@
       text-decoration: none; transition: background .2s;
     }
     .btn-reserva:hover { background: var(--teal-dark); }
-
+ 
     /* ===== HERO ===== */
     .hero {
       position: relative; min-height: 600px; overflow: hidden;
@@ -79,7 +80,7 @@
       transition: background .2s;
     }
     .btn-hero:hover { background: #c94444; }
-
+ 
     /* ===== MONTA SERVICE ===== */
     .monta-section {
       padding: 40px 60px; background: #fff9f5;
@@ -102,7 +103,7 @@
       transition: background .2s;
     }
     .btn-info:hover { background: var(--teal-dark); }
-
+ 
     /* ===== CARACTERÍSTICAS ===== */
     .caracteristicas {
       padding: 60px 60px; background: var(--beige);
@@ -116,8 +117,11 @@
       align-items: start; max-width: 1100px; margin: 0 auto;
     }
     .caract-img {
-      width: 280px; height: 380px; object-fit: contain;
+      width: 280px; height: 360px; object-fit: cover;
+      object-position: center top;
       display: block; margin: 0 auto;
+      border-radius: 24px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
     }
     .caract-img-placeholder {
       width: 280px; height: 380px; background: linear-gradient(135deg, #f9c5a0, #e8946a);
@@ -129,7 +133,7 @@
     .caract-num { color: var(--red); font-weight: 900; font-size: 14px; margin-bottom: 4px; }
     .caract-item h3 { font-size: 17px; font-weight: 900; margin-bottom: 6px; }
     .caract-item p { font-size: 13px; color: #555; line-height: 1.6; }
-
+ 
     /* ===== GALERÍA ===== */
     .galeria { padding: 60px 60px; background: #fff9f5; }
     .galeria-grid {
@@ -151,7 +155,7 @@
     }
     .galeria-placeholder:hover { transform: scale(1.03); }
     .galeria-placeholder span { font-size: 12px; font-weight: 700; margin-top: 8px; }
-
+ 
     /* ===== QUÉ INCLUYE ===== */
     .incluye { padding: 60px 60px; background: var(--beige); }
     .incluye-inner {
@@ -169,7 +173,7 @@
     .incluye-items { display: flex; flex-direction: column; gap: 24px; }
     .incluye-item h3 { font-size: 16px; font-weight: 900; margin-bottom: 4px; }
     .incluye-item p { font-size: 13px; color: #555; line-height: 1.6; }
-
+ 
     /* ===== TU MEJOR AMIGO ===== */
     .amigo { padding: 60px 60px; background: #fde8e0; }
     .amigo-inner {
@@ -194,7 +198,7 @@
     .amigo-list li::before {
       content: '🤍'; font-size: 16px;
     }
-
+ 
     /* ===== FORMAS / PAGOS / ATENCIÓN ===== */
     .logistica { padding: 60px 60px; background: var(--beige); position: relative; overflow: hidden; }
     .wave-top {
@@ -221,7 +225,7 @@
       transition: background .2s;
     }
     .btn-small:hover { background: var(--teal-dark); }
-
+ 
     /* ===== FAQ ===== */
     .faq { padding: 0; background: var(--teal); }
     .faq-wave {
@@ -248,7 +252,7 @@
     }
     .faq-item.open .faq-answer { max-height: 200px; padding: 0 20px 16px; }
     .faq-item.open .faq-question span { transform: rotate(45deg); }
-
+ 
     /* ===== CONTACTO ===== */
     .contacto {
       background: var(--teal); padding: 60px 60px; text-align: center;
@@ -260,7 +264,7 @@
       font-size: 28px; font-weight: 900; color: #ffe066;
       display: flex; align-items: center; justify-content: center; gap: 10px; margin: 12px 0;
     }
-
+ 
     /* ===== FOOTER ===== */
     .footer-wave {
       height: 80px;
@@ -278,7 +282,7 @@
     .footer-logo-text { font-size: 16px; font-weight: 900; }
     .footer-copy { font-size: 12px; color: #888; }
     .footer-dev { font-size: 12px; color: #888; }
-
+ 
     /* ===== WHATSAPP FLOAT ===== */
     .wa-float {
       position: fixed; bottom: 24px; right: 24px; z-index: 999;
@@ -289,7 +293,7 @@
     }
     .wa-float:hover { transform: scale(1.1); }
     .wa-float svg { width: 30px; height: 30px; fill: #fff; }
-
+ 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
       nav { padding: 12px 20px; }
@@ -310,11 +314,13 @@
   </style>
 </head>
 <body>
-
+ 
 <!-- NAVBAR -->
 <nav>
   <div class="logo">
-    <div class="logo-icon">🐩</div>
+    <div class="logo-icon" style="background:#f9a8a8; overflow:hidden;">
+      <img src="caract-dog.png" alt="logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none'; this.parentElement.innerHTML='🐩';" />
+    </div>
     <div class="logo-text">CANICHES<br>MINI TOYS ROJOS</div>
   </div>
   <div class="nav-links">
@@ -327,7 +333,7 @@
   </div>
   <a href="https://wa.me/5491130332949" class="btn-reserva" style="display:none" id="nav-wa-mobile">WhatsApp</a>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-placeholder" id="hero-placeholder" style="display:none">🐶</div>
@@ -344,7 +350,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- MONTA SERVICE -->
 <section class="monta-section">
   <div class="monta-box">
@@ -356,7 +362,7 @@
     </a>
   </div>
 </section>
-
+ 
 <!-- CARACTERÍSTICAS -->
 <section class="caracteristicas" id="caracteristicas">
   <h2 class="section-title">Características del<br>caniche rojo mini toy</h2>
@@ -378,7 +384,7 @@
         <p>Los caniches toy rojos son conocidos por su alta inteligencia y capacidad de aprendizaje. Son fáciles de entrenar y pueden aprender trucos y comandos rápidamente.</p>
       </div>
     </div>
-
+ 
     <!-- IMAGEN CENTRAL: reemplaza caract-dog.png con tu foto -->
     <div>
       <div class="caract-img-placeholder" id="caract-placeholder">🐩</div>
@@ -387,7 +393,7 @@
         style="display:none"
         onload="this.style.display='block'; document.getElementById('caract-placeholder').style.display='none';" />
     </div>
-
+ 
     <div class="caract-col">
       <div class="caract-item">
         <div class="caract-num">04</div>
@@ -407,7 +413,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- GALERÍA -->
 <section class="galeria" id="galeria">
   <h2 class="section-title" style="color: var(--teal);">Galería</h2>
@@ -427,7 +433,7 @@
     💡 Reemplazá los placeholders con tus fotos: galeria1.jpg, galeria2.jpg... galeria9.jpg
   </p>
 </section>
-
+ 
 <!-- QUÉ INCLUYE -->
 <section class="incluye" id="incluye">
   <h2 class="section-title">¿Qué incluye el precio?</h2>
@@ -459,7 +465,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- TU MEJOR AMIGO -->
 <section class="amigo" id="amigo">
   <div class="amigo-inner">
@@ -485,7 +491,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- FORMAS / PAGOS / ATENCIÓN -->
 <section class="logistica" id="pagos">
   <div class="wave-top"></div>
@@ -510,7 +516,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="faq-wave"></div>
@@ -570,48 +576,54 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACTO -->
 <section class="contacto" id="contacto">
-  <div class="contacto-icon">💬</div>
+  <div class="contacto-icon">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:60px;height:60px;fill:#fff;">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </div>
   <h2>Contactanos para más información</h2>
   <p>Horario de atención:<br>10 a 16hs solo WhatsApp</p>
   <div class="contacto-num">
     👉 <a href="https://wa.me/5491130332949" style="color: #ffe066; text-decoration: none;">+54 9 11 3033-2949</a>
   </div>
 </section>
-
+ 
 <!-- FOOTER WAVE -->
 <div style="height:60px; background: linear-gradient(to bottom, var(--teal) 50%, #fff 50%);"></div>
-
+ 
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-logo">
-    <div class="footer-logo-icon">🐩</div>
+    <div class="footer-logo-icon" style="background:#f9a8a8; overflow:hidden;">
+      <img src="caract-dog.png" alt="logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none'; this.parentElement.innerHTML='🐩';" />
+    </div>
     <div class="footer-logo-text">CANICHES<br>MINI TOYS ROJOS</div>
   </div>
   <div class="footer-copy">Copyright © 2026 Caniches Mini Toys Rojos</div>
   <div class="footer-dev">Desarrollado con ❤️</div>
 </footer>
-
+ 
 <!-- WHATSAPP FLOTANTE -->
 <a href="https://wa.me/5491130332949" class="wa-float" target="_blank" title="WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
 </a>
-
+ 
 <script>
   // FAQ toggle
   function toggleFaq(el) {
     const item = el.parentElement;
     item.classList.toggle('open');
   }
-
+ 
   // Mostrar nav WhatsApp en mobile
   const mobileWA = document.getElementById('nav-wa-mobile');
   if (window.innerWidth <= 900) mobileWA.style.display = 'block';
-
+ 
   // Intentar cargar imágenes dinámicamente
   const images = [
     { src: 'hero-bg.jpg', imgId: 'hero-img', placeholderId: 'hero-placeholder' },
@@ -626,7 +638,7 @@
       img.style.display = 'block';
     }
   });
-
+ 
   // Galería dinámica: galeria1.jpg a galeria9.jpg
   for (let i = 1; i <= 9; i++) {
     const placeholder = document.getElementById('gp' + i);
@@ -641,6 +653,7 @@
     }
   }
 </script>
-
+ 
 </body>
 </html>
+ 
