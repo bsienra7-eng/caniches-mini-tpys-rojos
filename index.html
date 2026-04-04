@@ -48,20 +48,18 @@
       display: flex; align-items: center;
     }
     .hero-img {
-      position: absolute; right: 0; top: 0; width: 55%; height: 100%;
-      object-fit: contain; object-position: center center;
-      background: linear-gradient(135deg, #fdd0b0, #e8a080);
+      position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
     }
-    /* Placeholder hero bg cuando no hay imagen */
     .hero-bg-placeholder {
-      position: absolute; right: 0; top: 0; width: 55%; height: 100%;
+      position: absolute; left: 0; top: 0; width: 100%; height: 100%;
       background: linear-gradient(135deg, #fdd0b0, #e8a080);
       display: flex; align-items: center; justify-content: center;
       font-size: 80px;
     }
     .hero-overlay {
-      position: absolute; left: 0; top: 0; width: 52%; height: 100%;
-      background: linear-gradient(to right, rgba(253,232,224,0.98) 60%, transparent);
+      position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+      background: linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 100%);
     }
     .hero-content {
       position: relative; z-index: 2; padding: 60px 60px; max-width: 580px;
