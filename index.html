@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caniches Mini Toys Rojos</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐩</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -298,8 +298,11 @@
     @media (max-width: 900px) {
       nav { padding: 12px 20px; }
       .nav-links { display: none; }
-      .hero-content { padding: 40px 20px; }
-      .hero-box h1 { font-size: 28px; }
+      .hero { min-height: 100vw; max-height: 520px; }
+      .hero-content { padding: 20px 16px; max-width: 100%; display: flex; align-items: flex-end; height: 100%; }
+      .hero-box { padding: 22px 20px; border-radius: 16px; }
+      .hero-box h1 { font-size: 26px; }
+      .hero-box p { font-size: 14px; }
       .caract-grid { grid-template-columns: 1fr; }
       .caract-img-placeholder, .caract-img { width: 200px; height: 260px; }
       .galeria { padding: 40px 20px; }
@@ -429,9 +432,7 @@
     <div class="galeria-placeholder" id="gp8"><span>📸 foto 8</span></div>
     <div class="galeria-placeholder" id="gp9"><span>📸 foto 9</span></div>
   </div>
-  <p style="text-align:center; margin-top: 20px; font-size:13px; color:#888;">
-    💡 Reemplazá los placeholders con tus fotos: galeria1.jpg, galeria2.jpg... galeria9.jpg
-  </p>
+ 
 </section>
  
 <!-- QUÉ INCLUYE -->
@@ -656,4 +657,3 @@
  
 </body>
 </html>
- 
