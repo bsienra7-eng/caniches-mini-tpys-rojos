@@ -66,10 +66,10 @@
       position: relative; z-index: 2; padding: 60px 60px; max-width: 580px;
     }
     .hero-box {
-      background: rgba(26,158,158,0.55); backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      background: rgba(26,158,158,0.35); backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border-radius: 20px; padding: 36px 40px; color: #fff;
-      border: 1px solid rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.3);
     }
     .hero-box h1 { font-size: 42px; font-weight: 900; margin-bottom: 12px; }
     .hero-box p { font-size: 18px; font-weight: 600; margin-bottom: 24px; }
@@ -436,6 +436,7 @@
     <div class="galeria-placeholder" id="gp11"><span>📸 foto 11</span></div>
     <div class="galeria-placeholder" id="gp12"><span>📸 foto 12</span></div>
     <div class="galeria-placeholder" id="gp13"><span>📸 foto 13</span></div>
+    <div class="galeria-placeholder" id="gp14"><span>📸 foto 14</span></div>
   </div>
  
 </section>
@@ -645,8 +646,8 @@
     }
   });
  
-  // Galería dinámica: galeria1.jpg a galeria13.jpg
-  for (let i = 1; i <= 13; i++) {
+  // Galería dinámica: galeria1.jpg a galeria14.jpg
+  for (let i = 1; i <= 14; i++) {
     const placeholder = document.getElementById('gp' + i);
     if (placeholder) {
       const img = document.createElement('img');
