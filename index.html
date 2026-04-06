@@ -58,10 +58,7 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 80px;
     }
-    .hero-overlay {
-      position: absolute; left: 0; top: 0; width: 100%; height: 100%;
-      background: linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 100%);
-    }
+    .hero-overlay { display: none; }
     .hero-content {
       position: relative; z-index: 2; padding: 60px 60px; max-width: 580px;
     }
@@ -80,6 +77,19 @@
       transition: background .2s;
     }
     .btn-hero:hover { background: #c94444; }
+ 
+    /* ===== HERO BOX STANDALONE ===== */
+    .hero-box-section {
+      background: var(--beige); padding: 30px 60px;
+      display: flex; justify-content: center;
+    }
+    .hero-box-standalone {
+      background: var(--teal); border-radius: 20px;
+      padding: 36px 40px; color: #fff; max-width: 700px; width: 100%;
+      text-align: center;
+    }
+    .hero-box-standalone h1 { font-size: 36px; font-weight: 900; margin-bottom: 12px; }
+    .hero-box-standalone p { font-size: 17px; font-weight: 600; margin-bottom: 24px; }
  
     /* ===== MONTA SERVICE ===== */
     .monta-section {
@@ -300,7 +310,10 @@
       .nav-links { display: none; }
       .hero { min-height: 100vw; max-height: 520px; }
       .hero-img { object-position: center 5%; }
-      .hero-content { padding: 20px 16px; max-width: 100%; display: flex; align-items: flex-end; height: 100%; padding-bottom: 30px; }
+      .hero-box-section { padding: 20px 16px; }
+      .hero-box-standalone { padding: 24px 20px; border-radius: 16px; }
+      .hero-box-standalone h1 { font-size: 26px; }
+      .hero-box-standalone p { font-size: 14px; }
       .hero-box { padding: 22px 20px; border-radius: 16px; }
       .hero-box h1 { font-size: 26px; }
       .hero-box p { font-size: 14px; }
@@ -341,19 +354,21 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-placeholder" id="hero-placeholder" style="display:none">🐶</div>
-  <img src="WhatsApp%20Image%202026-04-04%20at%2001.18.45.jpeg" 
+  <img src="hero-bg.jpg" 
        alt="Caniche Mini Toy Rojo" class="hero-img" id="hero-img"
        onerror="this.style.display='none'; document.getElementById('hero-placeholder').style.display='flex';"
        onload="document.getElementById('hero-placeholder').style.display='none';" />
   <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-box">
-      <h1>Caniches Mini<br>Toys Rojos</h1>
-      <p>Poodles Elegantes, Saludables y<br>Listos para Ser Parte de Tu Familia</p>
-      <a href="https://wa.me/5491130332949" class="btn-hero">Lo Quiero ❤️</a>
-    </div>
-  </div>
 </section>
+ 
+<!-- HERO BOX SEPARADO -->
+<div class="hero-box-section">
+  <div class="hero-box-standalone">
+    <h1>Caniches Mini<br>Toys Rojos</h1>
+    <p>Poodles Elegantes, Saludables y<br>Listos para Ser Parte de Tu Familia</p>
+    <a href="https://wa.me/5491130332949" class="btn-hero">Lo Quiero ❤️</a>
+  </div>
+</div>
  
 <!-- MONTA SERVICE -->
 <section class="monta-section">
