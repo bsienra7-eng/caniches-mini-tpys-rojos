@@ -299,7 +299,8 @@
       nav { padding: 12px 20px; }
       .nav-links { display: none; }
       .hero { min-height: 100vw; max-height: 520px; }
-      .hero-content { padding: 20px 16px; max-width: 100%; display: flex; align-items: flex-end; height: 100%; }
+      .hero-img { object-position: center center; }
+      .hero-content { padding: 20px 16px; max-width: 100%; display: flex; align-items: center; height: 100%; }
       .hero-box { padding: 22px 20px; border-radius: 16px; }
       .hero-box h1 { font-size: 26px; }
       .hero-box p { font-size: 14px; }
@@ -431,6 +432,10 @@
     <div class="galeria-placeholder" id="gp7"><span>📸 foto 7</span></div>
     <div class="galeria-placeholder" id="gp8"><span>📸 foto 8</span></div>
     <div class="galeria-placeholder" id="gp9"><span>📸 foto 9</span></div>
+    <div class="galeria-placeholder" id="gp10"><span>📸 foto 10</span></div>
+    <div class="galeria-placeholder" id="gp11"><span>📸 foto 11</span></div>
+    <div class="galeria-placeholder" id="gp12"><span>📸 foto 12</span></div>
+    <div class="galeria-placeholder" id="gp13"><span>📸 foto 13</span></div>
   </div>
  
 </section>
@@ -640,8 +645,8 @@
     }
   });
  
-  // Galería dinámica: galeria1.jpg a galeria9.jpg
-  for (let i = 1; i <= 9; i++) {
+  // Galería dinámica: galeria1.jpg a galeria13.jpg
+  for (let i = 1; i <= 13; i++) {
     const placeholder = document.getElementById('gp' + i);
     if (placeholder) {
       const img = document.createElement('img');
@@ -657,3 +662,4 @@
  
 </body>
 </html>
+ 
